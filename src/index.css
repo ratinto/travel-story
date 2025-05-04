@@ -1,0 +1,8 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-image: url(https://www.often.travel/_next/image?url=https%3A%2F%2Foften-public-assets.blr1.cdn.digitaloceanspaces.com%2Fcloudsbg.png&w=3840&q=75);
+    background-size: cover; /* Ensures the entire image fits within the viewport */
+    background-position: center; /* Centers the image */
+    /* background-repeat: no-repeat; Prevents the image from repeating */
+}

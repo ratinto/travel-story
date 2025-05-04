@@ -10,7 +10,12 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@remotion/cli": "^4.0.296",
+    "@remotion/player": "^4.0.296",
+    "@remotion/renderer": "^4.0.296",
     "animejs": "^4.0.2",
+    "cors": "^2.8.5",
+    "express": "^5.1.0",
     "framer-motion": "^12.9.4",
     "html2canvas": "^1.4.1",
     "jspdf": "^3.0.1",
@@ -19,7 +24,8 @@
     "react-dnd-html5-backend": "^16.0.1",
     "react-dom": "^19.0.0",
     "react-draggable": "^4.4.6",
-    "react-icons": "^5.5.0"
+    "react-icons": "^5.5.0",
+    "remotion": "^4.0.296"
   },
   "devDependencies": {
     "@eslint/js": "^9.22.0",

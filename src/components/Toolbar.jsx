@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { FaPlus, FaImage, FaFont, FaFilePdf } from "react-icons/fa";
 import { jsPDF } from "jspdf";
 import html2canvas from "html2canvas";
+import SaveAnimation from "./SaveAnimation";
 
 function Toolbar({
   textInput,
@@ -69,15 +70,19 @@ function Toolbar({
     <div
       style={{
         position: "fixed",
-        bottom: "20px",
-        right: "20px",
-        background: "#1f1f1f",
-        borderRadius: "12px",
-        padding: "16px",
+        top: "10px",
+        left: "50%",
+
+        background: "#FBF5F1",
+        borderRadius: "100px",
+        padding: "1px",
+        paddingRight:"16px",
+        paddingLeft:'16px',
         boxShadow: "0 4px 20px rgba(0,0,0,0.3)",
         display: "flex",
-        gap: "12px",
+        gap: "20px",
         alignItems: "center",
+
         zIndex: 9999,
         transform: `translate(${toolbarPosition.x}px, ${toolbarPosition.y}px)`,
         cursor: isDragging ? "grabbing" : "grab",
@@ -87,36 +92,45 @@ function Toolbar({
       onMouseUp={handleMouseUp}
       onMouseLeave={handleMouseUp}
     >
-      <FaFont color="#fff" title="Enter Text" />
-      <textarea
-        placeholder="Enter text"
-        value={textInput}
-        onChange={(e) => setTextInput(e.target.value)}
-        rows={2}
+      <div
         style={{
-          padding: "8px 12px",
-          borderRadius: "8px",
-          border: "1px solid #555",
-          outline: "none",
-          background: "#2b2b2b",
-          color: "white",
-          resize: "none",
+          display: "flex",
+          gap: "12px",
+          justifyContent: "center",
+          alignItems: "center",
         }}
-      />
-
-      <button
-        onClick={handleAddText}
-        style={{
-          background: "#4CAF50",
-          border: "none",
-          padding: "10px",
-          borderRadius: "50%",
-          cursor: "pointer",
-        }}
-        title="Add Text"
       >
-        <FaPlus color="white" />
-      </button>
+        <FaFont color="#C3C9CE" title="Enter Text" />
+        <textarea
+          placeholder="Enter text"
+          value={textInput}
+          onChange={(e) => setTextInput(e.target.value)}
+          rows={2}
+          style={{
+            padding: "8px 12px",
+            borderRadius: "8px",
+            border: "1px solid #555",
+            outline: "none",
+            background: "#2b2b2b",
+            color: "white",
+            resize: "none",
+          }}
+        />
+
+        <button
+          onClick={handleAddText}
+          style={{
+            background: "#4CAF50",
+            border: "none",
+            padding: "10px",
+            borderRadius: "50%",
+            cursor: "pointer",
+          }}
+          title="Add Text"
+        >
+          <FaPlus color="white" />
+        </button>
+      </div>
       <label
         htmlFor="imageUpload"
         style={{
@@ -136,7 +150,11 @@ function Toolbar({
         onChange={handleImageUpload}
         style={{ display: "none" }}
       />
-      {/* Export to PDF Button */}
+
+      <div style={{ position: "relative", top: "-20px" }}>
+        <SaveAnimation />
+      </div>
+
       <button
         onClick={exportToPDF}
         style={{
