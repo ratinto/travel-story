@@ -65,28 +65,7 @@ function App() {
         handleImageUpload={handleImageUpload}
       />
       <Canvas elements={elements} handleDragStop={handleDragStop} />
-      <div style={{
-        position:'absolute',
-        bottom:"20px",
-        left:'80px',
-        alignItems:"center",
-        justifyContent:'center',
-        
-
-        background: "#FBF5F1",
-        borderRadius: "12px",
-        padding: "1px",
-        paddingRight:"16px",
-        paddingLeft:'16px',
-        boxShadow: "0 4px 20px rgba(0,0,0,0.3)",
-        display: "flex",
-        gap: "20px",
-        alignItems: "center",
-
-        zIndex: 9999,
-        width:"100px",
-        height:"50px"
-      }}>Travel Story</div>
+      
       
     </>
   );

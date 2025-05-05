@@ -68,38 +68,18 @@ function Toolbar({
 
   return (
     <div
-      style={{
-        position: "fixed",
-        top: "10px",
-        left: "50%",
+  className="toolbar"
+  style={{
+    transform: `translate(${toolbarPosition.x}px, ${toolbarPosition.y}px)`,
+    cursor: isDragging ? "grabbing" : "grab",
+  }}
+  onMouseDown={handleMouseDown}
+  onMouseMove={handleMouseMove}
+  onMouseUp={handleMouseUp}
+  onMouseLeave={handleMouseUp}
+>
 
-        background: "#FBF5F1",
-        borderRadius: "100px",
-        padding: "1px",
-        paddingRight:"16px",
-        paddingLeft:'16px',
-        boxShadow: "0 4px 20px rgba(0,0,0,0.3)",
-        display: "flex",
-        gap: "20px",
-        alignItems: "center",
-
-        zIndex: 9999,
-        transform: `translate(${toolbarPosition.x}px, ${toolbarPosition.y}px)`,
-        cursor: isDragging ? "grabbing" : "grab",
-      }}
-      onMouseDown={handleMouseDown}
-      onMouseMove={handleMouseMove}
-      onMouseUp={handleMouseUp}
-      onMouseLeave={handleMouseUp}
-    >
-      <div
-        style={{
-          display: "flex",
-          gap: "12px",
-          justifyContent: "center",
-          alignItems: "center",
-        }}
-      >
+      
         <FaFont color="#C3C9CE" title="Enter Text" />
         <textarea
           placeholder="Enter text"
@@ -130,7 +110,7 @@ function Toolbar({
         >
           <FaPlus color="white" />
         </button>
-      </div>
+      
       <label
         htmlFor="imageUpload"
         style={{
