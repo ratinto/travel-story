@@ -54,6 +54,28 @@ function App() {
 
 
 
+  const handleExport = () => {
+    const cleanedElements = elements.map(({ nodeRef, ...rest }) => rest);
+  
+    const canvasData = {
+      elements: cleanedElements,
+    };
+  
+    const blob = new Blob([JSON.stringify(canvasData, null, 2)], {
+      type: "application/json",
+    });
+  
+    const link = document.createElement("a");
+    link.href = URL.createObjectURL(blob);
+    link.download = "canvas-data.json";
+    link.click();
+  
+    alert("File downloaded. Now place it inside remotion/data/");
+  };
+
+
+
+
   return (
     <>
     {/* <SaveAnimation /> */}
@@ -66,7 +88,22 @@ function App() {
       />
       <Canvas elements={elements} handleDragStop={handleDragStop} />
       
-      
+      <div style={{
+            opacity: 100,
+            transform: "scale(0.8)",
+            position: "fixed",
+            top: "90%",
+            left: "85%",
+            backgroundColor: "#d4edda",
+            padding: "20px 30px",
+            borderRadius: "10px",
+            color: "#155724",
+            fontWeight: "bold",
+            boxShadow: "0 4px 20px rgba(0,0,0,0.2)",
+            zIndex: 10000,
+          }}>
+      <button style={{border:"none", background:"transparent", color:'grey',fontSize:'15px'}} onClick={handleExport}>Export Canvas to Video</button>
+    </div>
     </>
   );
 }
